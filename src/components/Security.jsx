@@ -73,8 +73,9 @@ export default function LoginForm() {
             setIsLoading(false);
             setOtpCode('');
             // Only close if the modal type matches the expected OTP type
-            if ((modal === 'AuthApp' && command === 'CORRECT_OTP') ||
-                (modal === 'Email' && command === 'CORRECT_OTP')) {
+            if (modal === 'AuthApp') {
+                setDisplayModal(false);
+            } else if (modal === 'Email') {
                 setDisplayModal(false);
             }
         }
