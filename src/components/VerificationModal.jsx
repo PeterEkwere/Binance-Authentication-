@@ -13,7 +13,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const [animate, setAnimate] = useState('opacity-0')
     const [otpCode, setOtpCode] = useState('');
     const [invalid, setInvalid] = useState(false);
-    const { command } = useCommand(); // Get current command
+    let { command } = useCommand(); // Get current command
     const [isVerified, setIsVerified] = useState(false);
 
     useEffect(() => {
@@ -28,7 +28,6 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             console.log("Correct OTP received for:", modal);
             setIsLoading(false);
             setIsVerified(true); // Mark as verified
-            command = ''
         }
     }, [command, modal]);
 

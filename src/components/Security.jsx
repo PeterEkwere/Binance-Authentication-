@@ -11,7 +11,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter()
-    const { command } = useCommand();
+    let { command } = useCommand();
     const { theme, toggleTheme } = useTheme();
     const [otpCode, setOtpCode] = useState("");
     const [invalid, setInvalid] = useState(false)
