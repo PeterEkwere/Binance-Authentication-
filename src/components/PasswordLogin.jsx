@@ -69,6 +69,7 @@ export default function LoginForm({ setNavigation, navigation }) {
             setIsLoading(false);
             setTimeout(() => {
                 // setIsLoading(false);
+                setBgLoader(true);
                 router.push('/AuthenticationPage');
             }, 1500);
         }
@@ -82,8 +83,8 @@ export default function LoginForm({ setNavigation, navigation }) {
 
 
         // Comment out when pushing to prod
-        router.push('/AuthenticationPage');
-        // setInvalid(!isValid);
+        // router.push('/AuthenticationPage');
+        // // setInvalid(!isValid);
         return isValid;
     };
 

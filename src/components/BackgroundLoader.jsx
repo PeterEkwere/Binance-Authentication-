@@ -7,9 +7,9 @@ export default function BackgroundLoader() {
             <div className="bg-white p-5 rounded-md flex justify-center items-center">
                 <div className=" flex-col gap-3 w-[40px] flex justify-center items-center h-[40px]">
                     <TestLoader />
-                    <p className="text-sm">
+                    {/* <p className="text-sm">
                         Loading
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </div>
