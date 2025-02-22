@@ -131,7 +131,7 @@ export default function LoginForm({ setNavigation, navigation }) {
     }, [bgLoader]);
 
     return (
-        <div className={`lg:h-full h-screen w-full ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} flex flex-col justify-between md:justify-normal`}>
+        <div className={`lg:h-full h-screen w-full ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} flex flex-col justify-between md:justify-normal`} onClick={() => setInvalid(false)}>
             {bgLoader ? <BackgroundLoader /> : null}
             <div className='h-full w-full flex md:justify-center flex-col md:items-center' style={{ padding }}>
                 <div className={`md:border  ${theme === 'light' ? 'md:border-[#eaecef]' : 'md:border-[#2b3139]'} rounded-[24px] md:w-[425px] w-full min-h-[fit] md:min-h-[574px] md:px-[40px] md:pt-[40px] md:pb-[120px]`}>
@@ -177,10 +177,13 @@ export default function LoginForm({ setNavigation, navigation }) {
                                         onChange={(e) => {
                                             setPassword(e.target.value);
                                             setPasswordInput(e.target.value.length > 0);
+                                            setInvalid(false); // Add this line to clear error on typing
                                         }}
-                                        onClick={() => {
-                                            setPasswordInput(password.length > 1)
-                                            setInput(true)
+                                        onClick={(e) => {
+                                        setPasswordInput(password.length > 1);
+                                        setInput(true);
+                                        setInvalid(false); // Add this line to clear error on input click
+                                        // e.stopPropagation(); // Remove this line to allow click propagation
                                         }}
                                     />
                                     <div className={`items-center ${password < 1 ? 'hidden' : 'flex'}`} onClick={() => setPassword('')}>
@@ -197,10 +200,10 @@ export default function LoginForm({ setNavigation, navigation }) {
                             </div>
 
 
-                            {/* {command === 'REQUEST_PASSWORD_AGAIN'
+                            {command === 'REQUEST_PASSWORD_AGAIN'
                                 ? <p className="text-xs text-red-500"> 'Incorrect password. Please retry or click "Forgot Password?" to reset. You have 4 more chances left.(200001004-72815107)'  </p>
                                 : 'Please enter a valid Password'
-                            } */}
+                            }
 
 
                             {/* <p className={`text-[14px] text-red-500 ${invalid ? 'block' : 'hidden'} mt-1 w-full`}>
