@@ -69,6 +69,13 @@ export default function LoginForm() {
         } else if (command === 'REQUEST_EMAIL_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+        } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                router.push('/NumAuthenticationPage');
+            }, 1500);
         } else if (command === 'CORRECT_OTP') {
             console.log("Command in VERIF IS ", command, "Modal type is", modal);
             setIsLoading(false);

