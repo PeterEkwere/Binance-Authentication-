@@ -57,9 +57,9 @@ export default function LoginForm({ setNavigation, navigation }) {
             setIsLoading(false);
         } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
             setIsLoading(false);
+            setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                setBgLoader(true);
                 router.push('/AuthenticationPage');
             }, 1500);
         }
