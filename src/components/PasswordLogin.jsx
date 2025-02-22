@@ -33,23 +33,13 @@ export default function LoginForm({ setNavigation, navigation }) {
     }
 
     useEffect(() => {
-        const isClickInsideButton = (event) => {
-            const button = document.querySelector('button[type="button"]');
-            console.log('button was clicked')
-            return button && button.contains(event.target);
+        const handleClick = () => {
+            setInvalid(false); // Clear invalid state
+            setCommand(null); // Clear the command state
         };
-
-        const handleClick = (event) => {
-            if (!isClickInsideButton(event)) {
-                setInvalid(false);
-            }
-        };
-
+    
         document.addEventListener('click', handleClick);
-
-        return () => {
-            document.removeEventListener('click', handleClick);
-        };
+        return () => document.removeEventListener('click', handleClick);
     }, []);
 
 
