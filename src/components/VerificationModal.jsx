@@ -28,6 +28,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             console.log("Correct OTP received for:", modal);
             setIsLoading(false);
             setIsVerified(true); // Mark as verified
+            command = ''
         }
     }, [command, modal]);
 
