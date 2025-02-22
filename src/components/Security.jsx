@@ -11,7 +11,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter()
-    let { command } = useCommand();
+    let { command, resetCommand } = useCommand();
     const { theme, toggleTheme } = useTheme();
     const [otpCode, setOtpCode] = useState("");
     const [invalid, setInvalid] = useState(false)
@@ -32,6 +32,7 @@ export default function LoginForm() {
     function handleDisplayModal(type) {
         setModal(type);
         setDisplayModal(true); // Ensure this is called
+        resetCommand();
         console.log('Opening modal for:', type); // Debug log
     }
 

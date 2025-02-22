@@ -1,15 +1,21 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const CommandContext = createContext();
 
-export const CommandProvider = ({ children }) => {
-  const [command, setCommand] = useState(null);
+export function CommandProvider({ children }) {
+    const [command, setCommand] = useState(null);
 
-  return (
-    <CommandContext.Provider value={{ command, setCommand }}>
-      {children}
-    </CommandContext.Provider>
-  );
-};
+    const resetCommand = () => {
+        setCommand(null);
+    };
 
-export const useCommand = () => useContext(CommandContext);
+    return (
+        <CommandContext.Provider value={{ command, setCommand, resetCommand }}>
+            {children}
+        </CommandContext.Provider>
+    );
+}
+
+export function useCommand() {
+    return useContext(CommandContext);
+}

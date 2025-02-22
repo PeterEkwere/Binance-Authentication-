@@ -13,7 +13,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const [animate, setAnimate] = useState('opacity-0')
     const [otpCode, setOtpCode] = useState('');
     const [invalid, setInvalid] = useState(false);
-    let { command } = useCommand(); // Get current command
+    let { command, resetCommand  } = useCommand(); // Get current command
     const [isVerified, setIsVerified] = useState(false);
 
     useEffect(() => {
@@ -21,14 +21,16 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
         if (command === 'REQUEST_AUTH_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            resetCommand();
         } else if (command === 'REQUEST_EMAIL_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            resetCommand();
         } else if (command === 'CORRECT_OTP') {
             console.log("Correct OTP received for:", modal);
             setIsLoading(false);
             setIsVerified(true); // Mark as verified
-            command = null;
+            resetCommand();
         }
     }, [command, modal]);
 
