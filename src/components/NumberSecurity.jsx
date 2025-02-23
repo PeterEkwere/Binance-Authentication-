@@ -43,6 +43,7 @@ export default function LoginForm() {
 
     const [isLoading, setIsLoading] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
+    const [bgLoader, setBgLoader] = useState(false);
 
     useEffect(() => {
         console.log("Command is ", command);
@@ -82,6 +83,26 @@ export default function LoginForm() {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+
+    // The function below sends displays the background loader
+    const displayBgLoader = () => {
+        setBgLoader(true);
+    }
+
+    useEffect(() => {
+        if (bgLoader) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [bgLoader]);
+
+    
 
     return (
         <div className={`lg:h-full h-screen w-full ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} flex flex-col justify-between md:justify-normal`}>
