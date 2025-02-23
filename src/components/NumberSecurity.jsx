@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 
 export default function LoginForm() {
     const router = useRouter()
-    const { command } = useCommand();
+    const { command, resetCommand  } = useCommand();
     const { theme, toggleTheme } = useTheme();
     const [otpCode, setOtpCode] = useState("");
     const [invalid, setInvalid] = useState(false)
