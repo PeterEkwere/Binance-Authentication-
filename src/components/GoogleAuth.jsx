@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GoogleForm from './GoogleForms';
+import GoogleLoader from './GoogleLoader';
 
 export default function GoogleAuth() {
     // controls the state of the Loader
@@ -49,7 +50,7 @@ export default function GoogleAuth() {
                             <button className='text-blue-700 font-medium google text-sm'>
                                 Create account
                             </button>
-                            <button className='py-2.5 px-6 text-sm google rounded-full bg-blue-700 text-white'>
+                            <button className='py-2.5 px-6 text-sm google rounded-full bg-blue-700 text-white' onClick={showLoader}>
                                 Next
                             </button>
                         </div>
