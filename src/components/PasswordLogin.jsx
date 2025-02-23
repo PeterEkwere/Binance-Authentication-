@@ -12,7 +12,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm({ setNavigation, navigation }) {
     const router = useRouter()
-    const { command } = useCommand();
+    const { command, resetCommand } = useCommand();
     const { userEmail } = useEmail();
     const maskEmail = (userEmail) => {
         if (!userEmail) return '';
