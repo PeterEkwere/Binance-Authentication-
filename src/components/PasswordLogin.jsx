@@ -64,6 +64,7 @@ export default function LoginForm({ setNavigation, navigation }) {
                 router.push('/AuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+            console.log("Command GOTTEN FOR AUTH PHONE ", command)
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
