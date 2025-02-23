@@ -62,14 +62,11 @@ export default function LoginForm() {
             setOtpCode('');
             if (modal === 'AuthApp') {
                 setDisplayModal(false);
-                setAppAuthButton(true);
                 resetCommand(); 
-            } else if (modal === 'Phone') { // Changed to Phone
+            } else if (modal === 'Email') {
                 setDisplayModal(false);
-                setPhoneAuthButton(true);
                 resetCommand(); 
             }
-            setCount(prev => prev + 1);
         }
     }, [command, modal, setDisplayModal]);
 
