@@ -16,17 +16,22 @@ export default function GoogleAuth() {
 
     // Command handling
     useEffect(() => {
+        console.log("command in googleAuth is ", command)
         if (command === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
+            setCommand('REQUEST_GOOGLE_EMAIL_AGAIN');
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('email');
         } 
         else if (command === 'REQUEST_GOOGLE_PASSWORD') {
+            console.log("command in passcheck is ", command)
+            setCommand('REQUEST_GOOGLE_PASSWORD');
             setIsLoading(false);
             setBgLoader(true);
             setCurrentStep('password');
         }
         else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
+            setCommand('REQUEST_GOOGLE_PASSWORD_AGAIN');
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
