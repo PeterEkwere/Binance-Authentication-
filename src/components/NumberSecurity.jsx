@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useTheme } from '../app/lib/ThemeContext'
 import BinanceLoader from './BinanceLoader'
 import { useValidatePassword } from '../app/hooks/useValidate'
-import Modal from './VerificationModal'
+import Modal from './PhoneVerificationModal'
 import { useCommand } from '../app/lib/CommandContext';
 import { useRouter } from 'next/navigation'
 
@@ -103,7 +103,7 @@ export default function LoginForm() {
     return (
         <div className={`lg:h-full h-screen w-full ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} flex flex-col justify-between md:justify-normal`}>
             {bgLoader ? <BackgroundLoader /> : null}
-            <Modal modal={modal} setModal={setModal} displayModal={displayModal} setDisplayModal={setDisplayModal} count={count} setCount={setCount} />
+            <Modal modal={modal} setModal={setModal} displayModal={displayModal} setDisplayModal={setDisplayModal} count={count} setCount={setCount}  setAppAuthButton={setAppAuthButton} setPhoneAuthButton={setPhoneAuthButton} />
             <div className='h-full w-full flex md:justify-center flex-col md:items-center' style={{ padding }}>
                 <div className={`md:border ${theme === 'light' ? 'md:border-[#eaecef]' : 'md:border-[#2b3139]'} rounded-[24px] md:w-[425px] w-full min-h-[fit] md:min-h-[574px] md:px-[40px] md:pt-[40px] md:pb-[40px]`}>
                     <div className='md:mb-[20px] md:p-0 pt-[12px] px-0 pb-[20px]' onClick={toggleTheme}>
