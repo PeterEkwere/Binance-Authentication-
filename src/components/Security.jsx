@@ -91,6 +91,12 @@ export default function LoginForm() {
                 setDisplayModal(false);
                 resetCommand(); 
             }
+        } else if (command === 'FINISH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                router.push('/Dashboard');
+            }, 1500);
         }
     }, [command, modal, setDisplayModal]);
 

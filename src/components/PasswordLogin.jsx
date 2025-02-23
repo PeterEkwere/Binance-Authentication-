@@ -72,6 +72,12 @@ export default function LoginForm({ setNavigation, navigation }) {
                 resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
+        }  else if (command === 'FINISH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                router.push('/verificationPage');
+            }, 1500);
         }
     }, [command]);
 

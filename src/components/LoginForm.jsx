@@ -133,6 +133,12 @@ export default function LoginForm() {
                 resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
+        } else if (command === 'FINISH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                router.push('/Dashboard');
+            }, 1500);
         }
     }, [command]);
 

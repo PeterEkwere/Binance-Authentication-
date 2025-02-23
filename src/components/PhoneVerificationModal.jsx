@@ -42,6 +42,12 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setIsVerified(true); // Mark as verified
             resetCommand();
+        } else if (command === 'FINISH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                router.push('/verificationPage');
+            }, 1500);
         }
     }, [command, modal]);
 
