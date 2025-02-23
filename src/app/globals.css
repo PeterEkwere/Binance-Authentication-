@@ -193,3 +193,25 @@ body{
     transform: scaleY(1.5);
   }
 }
+
+.google-loader {
+  height: 4px;
+  background: #ddd;
+  position: relative;
+  overflow: hidden;
+}
+
+.google-loader::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #4285f4;
+  animation: loader 2s linear infinite;
+}
+
+@keyframes loader {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
