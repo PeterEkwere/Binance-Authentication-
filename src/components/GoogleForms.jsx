@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 
 
+
 export default function GoogleForm({ currentStep, email, setEmail, password, setPassword, invalid }) {
+
+      const [command, setCommand] = useState(null);
+      
     // Command handling
         useEffect(() => {
             console.log("command in googleAuth is ", command)
