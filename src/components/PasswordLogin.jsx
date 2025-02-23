@@ -54,11 +54,13 @@ export default function LoginForm({ setNavigation, navigation }) {
         if (command === 'REQUEST_PASSWORD_AGAIN') {
             setInvalid(true); // Show error state for email input
             setIsLoading(false);
+            resetCommand(); 
         } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
+                resetCommand(); 
                 router.push('/AuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
@@ -66,6 +68,7 @@ export default function LoginForm({ setNavigation, navigation }) {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
+                resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
         }

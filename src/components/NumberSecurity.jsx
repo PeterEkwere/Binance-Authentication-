@@ -49,9 +49,11 @@ export default function LoginForm() {
         if (command === 'REQUEST_AUTH_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            resetCommand(); 
         } else if (command === 'REQUEST_PHONE_OTP_AGAIN') { // Changed to PHONE
             setIsLoading(false);
             setInvalid(true);
+            resetCommand(); 
         } else if (command === 'CORRECT_OTP') {
             console.log("Command in VERIF IS ", command, "Modal type is", modal);
             setIsLoading(false);
@@ -59,9 +61,11 @@ export default function LoginForm() {
             if (modal === 'AuthApp') {
                 setDisplayModal(false);
                 setAppAuthButton(true);
+                resetCommand(); 
             } else if (modal === 'Phone') { // Changed to Phone
                 setDisplayModal(false);
                 setPhoneAuthButton(true);
+                resetCommand(); 
             }
             setCount(prev => prev + 1);
         }
