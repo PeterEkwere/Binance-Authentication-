@@ -13,7 +13,7 @@ export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [invalid, setInvalid] = useState(false);
-    const [command, resetCommand] = useCommand();
+    const { command, resetCommand } = useCommand();
 
 
 
