@@ -1,52 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
-
 
 
 export default function GoogleForm({ currentStep, email, setEmail, password, setPassword, invalid }) {
-
-      const [command, setCommand] = useState(null);
-      
-    // Command handling
-        useEffect(() => {
-            console.log("command in googleAuth is ", command)
-            if (command === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
-                // setInvalid(true);
-                // setIsLoading(false);
-                // setCurrentStep('email');
-            } 
-            else if (command === 'REQUEST_GOOGLE_PASSWORD') {
-                console.log("command in passcheck is ", command)
-                // setIsLoading(false);
-                // setBgLoader(true);
-                // setCurrentStep('password');
-            }
-            else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
-                // setCommand('REQUEST_GOOGLE_PASSWORD_AGAIN');
-                // setInvalid(true);
-                // setIsLoading(false);
-                // setCurrentStep('password');
-            }
-            else if (command === 'CORRECT_OTP') {
-                setIsLoading(false);
-                setBgLoader(true);
-                // setTimeout(() => {
-                //     router.push('/OTPVerification');
-                // }, 1500);
-            }
-            else if (command === 'FINISH') {
-                setIsLoading(false);
-                setBgLoader(true);
-                setTimeout(() => {
-                    router.push('/Dashboard');
-                }, 1500);
-            }
-        }, [command]);
-    
-
-
-
-
 
     return (
         <div className='flex-col gap-y-2 h-full flex w-full'>

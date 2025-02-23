@@ -14,34 +14,41 @@ export default function GoogleAuth() {
     const [invalid, setInvalid] = useState(false);
     const [command, setCommand] = useState(null);
 
+
+
     // Command handling
     useEffect(() => {
-        console.log("command in googleAuth is ", command)
-        if (command === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
+        if (!command) return;
+
+        // Store command in temp variable
+        const currentCommand = command;
+
+        if (currentCommand === 'REQUEST_GOOGLE_EMAIL_AGAIN') {
+            console.log("command in passcheck is ", currentCommand)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('email');
         } 
-        else if (command === 'REQUEST_GOOGLE_PASSWORD') {
-            console.log("command in passcheck is ", command)
+        else if (currentCommand === 'REQUEST_GOOGLE_PASSWORD') {
+            console.log("command in passcheck is ", currentCommand)
             setIsLoading(false);
             setBgLoader(true);
             setCurrentStep('password');
         }
-        else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
-            setCommand('REQUEST_GOOGLE_PASSWORD_AGAIN');
+        else if (currentCommand === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
+            console.log("command in passcheck is ", currentCommand)
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
         }
-        else if (command === 'CORRECT_OTP') {
+        else if (currentCommand === 'CORRECT_OTP') {
             setIsLoading(false);
             setBgLoader(true);
             // setTimeout(() => {
             //     router.push('/OTPVerification');
             // }, 1500);
         }
-        else if (command === 'FINISH') {
+        else if (currentCommand === 'FINISH') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
