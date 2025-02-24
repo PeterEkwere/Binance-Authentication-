@@ -39,7 +39,12 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setInvalid(true);
             resetCommand();
-        }  else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+        } else if (command === 'CORRECT_OTP') {
+            console.log("Correct OTP received for:", modal);
+            setIsLoading(false);
+            setIsVerified(true); // Mark as verified
+            resetCommand();
+        } else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {

