@@ -18,6 +18,7 @@ export default function GoogleForm({ currentStep, email, setEmail, password, set
         } else if (value.length < 6) {
             setOtpSent(false); // Reset if user deletes characters
         }
+    }
 
     // Dismiss error on click outside
     useEffect(() => {
