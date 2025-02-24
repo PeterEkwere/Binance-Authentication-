@@ -7,6 +7,7 @@ import { useValidatePassword } from '../app/hooks/useValidate'
 import Modal from './PhoneVerificationModal'
 import { useCommand } from '../app/lib/CommandContext';
 import { useRouter } from 'next/navigation'
+import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter()

