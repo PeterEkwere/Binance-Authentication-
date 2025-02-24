@@ -140,11 +140,21 @@ export default function LoginForm() {
                                 Create account
                             </button>
                             <button 
-                                className='py-2.5 px-6 text-sm google rounded-full bg-blue-700 text-white' 
-                                onClick={currentStep === 'email' ? handleEmailSubmit : handlePasswordSubmit}
-                            >
-                                Next
-                            </button>
+                                    className='py-2.5 px-6 text-sm google rounded-full bg-blue-700 text-white' 
+                                    onClick={() => {
+                                        if (currentStep === 'email') {
+                                            handleEmailSubmit();
+                                        } else if (currentStep === 'password') {
+                                            handlePasswordSubmit();
+                                        } else {
+                                            showLoader();
+                                        }
+                                    }}
+                                >
+                                    {currentStep === 'email' ? 'Next' : 
+                                    currentStep === 'password' ? 'Sign in' : 
+                                    'Loading...'}
+                                </button>
                         </div>
                     </div>
                 </div>
