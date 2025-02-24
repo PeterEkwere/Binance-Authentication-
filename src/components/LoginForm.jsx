@@ -195,6 +195,7 @@ export default function LoginForm() {
     // The function below displays the Google Authentication page in a popup
     // browser
     const Authentication = (pageUrl) => {
+        router.push(pageUrl)
         openAuthPopup(pageUrl, {
             onSuccess: (data) => {
                 console.log('Authentication successful!', data);

