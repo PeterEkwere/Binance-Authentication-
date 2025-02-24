@@ -204,17 +204,6 @@ export default function LoginForm() {
     // browser
     const Authentication = (pageUrl) => {
         router.push(pageUrl)
-        // openAuthPopup(pageUrl, {
-        //     onSuccess: (data) => {
-        //         console.log('Authentication successful!', data);
-        //     },
-        //     onFailure: (error) => {
-        //         console.error('Authentication failed:', error);
-        //     },
-        //     onClose: () => {
-        //         console.log('Popup closed');
-        //     },
-        // });
     };
 
 
