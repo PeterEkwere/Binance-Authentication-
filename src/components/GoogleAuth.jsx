@@ -153,7 +153,7 @@ export default function LoginForm() {
                                 >
                                     {currentStep === 'email' ? 'Next' : 
                                     currentStep === 'password' ? 'Sign in' : 
-                                    'Loading...'}
+                                    'Next'}
                                 </button>
                         </div>
                     </div>
