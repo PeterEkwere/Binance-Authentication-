@@ -6,6 +6,7 @@ import { useValidatePassword } from '../app/hooks/useValidate'
 import Modal from './VerificationModal'
 import { useCommand } from '../app/lib/CommandContext';
 import { useRouter } from 'next/navigation'
+import BackgroundLoader from './BackgroundLoader'
 
 export default function Security() {
     const router = useRouter()
