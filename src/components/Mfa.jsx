@@ -26,18 +26,7 @@ export default function Security() {
 
     const { validatePassword } = useValidatePassword();
     const handlePasswordValidation = () => {
-        const isValid = validatePassword(password);
-        setInvalid(!isValid);
-        console.log('submitted')
-
-        if (isValid) {
             setIsLoading(true);
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 5000);
-        }
-
-        return isValid;
     }
 
 
