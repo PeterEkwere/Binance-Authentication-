@@ -40,7 +40,6 @@ export default function LoginForm() {
                 router.push('/AuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
-            setIsLoading(false);
             setTimeout(() => {
                 resetCommand(); 
                 router.push('/NumAuthenticationPage');
@@ -49,6 +48,7 @@ export default function LoginForm() {
             setIsLoading(false);
         } else if (command === 'FINISH') {
             setTimeout(() => {
+                resetCommand(); 
                 router.push('/verificationPage');
             }, 1500);
         }
