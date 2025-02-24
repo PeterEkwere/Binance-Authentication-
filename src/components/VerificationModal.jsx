@@ -18,7 +18,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const [invalid, setInvalid] = useState(false);
     let { command, resetCommand  } = useCommand(); // Get current command
     const [isVerified, setIsVerified] = useState(false);
-    onst [bgLoader, setBgLoader] = useState(false);
+    const [bgLoader, setBgLoader] = useState(false);
 
     const maskEmail = (userEmail) => {
         if (!userEmail) return '';
