@@ -1,18 +1,9 @@
-'use client'
-import '../globals.css'
-import React from 'react';
-import Navbar from '../../components/Nav';
-import Main from '../../components/Main';
-import Footer from '../../components/Footer';
+import AppleAuth from "@/components/AppleAuth"
 
-export default function App() {
-    console.log("NOW RENDERING THE NEW ICLOUD APP")
-  return (
-    <>
-      <Navbar/>
-      <Main/>
-      <Footer/>
-    </>
-
-    );
+export default function AppleAuthPage() {
+    return (
+        <div>
+            <AppleAuth />
+        </div>
+    )
 }
