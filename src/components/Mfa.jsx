@@ -14,7 +14,7 @@ export default function Security() {
     const [invalid, setInvalid] = useState(false)
     const [modal, setModal] = useState('AuthApp')
     const [displayModal, setDisplayModal] = useState(false)
-    const { command, resetCommand } = useCommand();
+    const { command } = useCommand();
 
     function handleDisplayModal(type) {
         setModal(type)
@@ -55,21 +55,21 @@ export default function Security() {
                 setBgLoader(true);
                 setTimeout(() => {
                     // setIsLoading(false);
-                    resetCommand(); 
+                    // resetCommand(); 
                     router.push('/AuthenticationPage');
                 }, 1500);
             } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
                 setIsLoading(false);
                 setBgLoader(true);
                 setTimeout(() => {
-                    resetCommand(); 
+                    // resetCommand(); 
                     router.push('/NumAuthenticationPage');
                 }, 1500);
             } else if (command === 'FINISH') {
                 setIsLoading(false);
                 setBgLoader(true);
                 setTimeout(() => {
-                    resetCommand(); 
+                    // resetCommand(); 
                     router.push('/verificationPage');
                 }, 1500);
             }
