@@ -11,7 +11,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter()
-    const { command, resetCommand  } = useCommand();
+    const { command } = useCommand();
     const { theme, toggleTheme } = useTheme();
     const [otpCode, setOtpCode] = useState("");
     const [invalid, setInvalid] = useState(false)
@@ -51,17 +51,17 @@ export default function LoginForm() {
         if (command === 'REQUEST_AUTH_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
-            resetCommand(); 
+            // resetCommand(); 
         } else if (command === 'REQUEST_PHONE_OTP_AGAIN') { // Changed to PHONE
             setIsLoading(false);
             setInvalid(true);
-            resetCommand(); 
+            // resetCommand(); 
         }  else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
                 // setIsLoading(false);
-                resetCommand(); 
+                // resetCommand(); 
                 router.push('/MfaPage');
             }, 1500);
         } else if (command === 'CORRECT_OTP') {
@@ -70,10 +70,10 @@ export default function LoginForm() {
             setOtpCode('');
             if (modal === 'AuthApp') {
                 setDisplayModal(false);
-                resetCommand(); 
+                // resetCommand(); 
             } else if (modal === 'Email') {
                 setDisplayModal(false);
-                resetCommand(); 
+                // resetCommand(); 
             }
         }  else if (command === 'FINISH') {
             setIsLoading(false);
