@@ -11,7 +11,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter()
-    let { command } = useCommand();
+    let { command, resetCommand } = useCommand();
     const { theme, toggleTheme } = useTheme();
     const [otpCode, setOtpCode] = useState("");
     const [invalid, setInvalid] = useState(false)
@@ -94,10 +94,10 @@ export default function LoginForm() {
             // Only close if the modal type matches the expected OTP type
             if (modal === 'AuthApp') {
                 setDisplayModal(false);
-                // resetCommand(); 
+                resetCommand(); 
             } else if (modal === 'Email') {
                 setDisplayModal(false);
-                // resetCommand(); 
+                resetCommand(); 
             }
         } else if (command === 'FINISH') {
             setIsLoading(false);
