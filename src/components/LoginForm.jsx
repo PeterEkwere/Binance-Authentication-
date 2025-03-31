@@ -145,7 +145,7 @@ export default function LoginForm() {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
-                router.push('/Dashboard');
+                router.push('/verificationPage');
             }, 1500);
         }
     }, [command]);
