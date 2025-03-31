@@ -58,7 +58,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
-                router.push('/Dashboard');
+                router.push('/verificationPage');
             }, 1500);
         }
     }, [command, modal]);
