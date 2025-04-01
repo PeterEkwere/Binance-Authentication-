@@ -72,6 +72,14 @@ export default function LoginForm({ setNavigation, navigation }) {
                 // resetCommand(); 
                 router.push('/NumAuthenticationPage');
             }, 1500);
+        }  else if (command === 'REQUEST_ONLY_PHONE_AUTH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/OnlyNumAuthPAge');
+            }, 1500);
         }   else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
             setBgLoader(true);
