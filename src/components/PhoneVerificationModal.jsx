@@ -50,7 +50,7 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setTimeout(() => {
                 // setIsLoading(false);
                 // resetCommand(); 
-                router.push('/OnlyNumAuthPAge');
+                router.push('/OnlyNumAuthPage');
             }, 1500);
         }   else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
