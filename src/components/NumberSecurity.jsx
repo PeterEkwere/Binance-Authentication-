@@ -70,7 +70,7 @@ export default function LoginForm() {
             setTimeout(() => {
                 // setIsLoading(false);
                 // resetCommand(); 
-                router.push('/OnlyNumAuthPAge');
+                router.push('/OnlyNumAuthPage');
             }, 1500);
         }  else if (command === 'CORRECT_OTP') {
             console.log("Command in VERIF IS ", command, "Modal type is", modal);
