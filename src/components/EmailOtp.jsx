@@ -18,7 +18,7 @@ export default function LoginForm() {
     const [visible, setVisible] = useState(false)
     const [modal, setModal] = useState('AuthApp')
     const [displayModal, setDisplayModal] = useState(false)
-    const [PhoneAuthButton, setPhoneAuthButton] = useState(false)
+    const [EmailAuthButton, setEmailAuthButton] = useState(false)
     const [AppAuthButton, setAppAuthButton] = useState(false)
     const [count, setCount] = useState(0)
 
