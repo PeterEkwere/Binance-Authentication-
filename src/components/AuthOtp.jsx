@@ -175,7 +175,7 @@ export default function LoginForm() {
                     </div>
 
                     <div className='text-[32px] tracking-[5px] mb-8 font-semibold text-[#F0B90B]'>
-                        {count}/2
+                        {count}/1
                     </div>
 
                     <div className='flex flex-col w-full items-center space-y-3 sm:space-y-4'>
