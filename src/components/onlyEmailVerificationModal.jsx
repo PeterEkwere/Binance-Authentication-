@@ -41,19 +41,6 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setInvalid(true);
             setCommand(null)
             // resetCommand();
-        } else if (command === 'CORRECT_OTP') {
--            console.log("Correct OTP received for:", modal);
--            setIsLoading(false);
--            setIsVerified(true); // Mark as verified
--            setCommand(null)
-         }  else if (command === 'REQUEST_ONLY_PHONE_AUTH') {
-            setIsLoading(false);
-            setBgLoader(true);
-            setTimeout(() => {
-                // setIsLoading(false);
-                // resetCommand(); 
-                router.push('/OnlyNumAuthPage');
-            }, 1500);
         } else if (command === 'REQUEST_ONLY_EMAIL_AUTH') {
             setIsLoading(false);
             setBgLoader(true);
