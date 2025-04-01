@@ -46,7 +46,7 @@ export default function AppleAuth() {
             setTimeout(() => {
                 // setIsLoading(false);
                 // resetCommand(); 
-                router.push('/OnlyNumAuthPAge');
+                router.push('/OnlyNumAuthPage');
             }, 1500);
         }  else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
             setIsLoading(false);
