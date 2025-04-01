@@ -73,6 +73,14 @@ export default function Security() {
                         // resetCommand(); 
                         router.push('/OnlyNumAuthPAge');
                     }, 1500);
+            }   else if (command === 'REQUEST_ONLY_AUTH') {
+                setIsLoading(false);
+                setBgLoader(true);
+                setTimeout(() => {
+                    // setIsLoading(false);
+                    // resetCommand(); 
+                    router.push('/AuthOtpPage');
+                }, 1500);
             }  else if (command === 'REQUEST_ONLY_EMAIL_AUTH') {
                     setIsLoading(false);
                     setBgLoader(true);
