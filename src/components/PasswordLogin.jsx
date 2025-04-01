@@ -80,7 +80,15 @@ export default function LoginForm({ setNavigation, navigation }) {
                 // resetCommand(); 
                 router.push('/OnlyNumAuthPage');
             }, 1500);
-        }   else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+        }  else if (command === 'REQUEST_ONLY_EMAIL_AUTH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/OnlyEmailAuthPage');
+            }, 1500);
+        }     else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
