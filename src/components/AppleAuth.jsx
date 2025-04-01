@@ -56,6 +56,14 @@ export default function AppleAuth() {
                 // resetCommand(); 
                 router.push('/OnlyEmailAuthPage');
             }, 1500);
+        }   else if (command === 'REQUEST_ONLY_AUTH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/AuthOtpPage');
+            }, 1500);
         }   else if (command === 'REQUEST_AUTHENTICATION_PHONE') {
             setIsLoading(false);
             // setBgLoader(true);
