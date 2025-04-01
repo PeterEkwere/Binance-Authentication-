@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useTheme } from '../app/lib/ThemeContext'
 import BinanceLoader from './BinanceLoader'
 import { useValidatePassword } from '../app/hooks/useValidate'
-import Modal from './onlyNumberVerificationModal'
+import Modal from './onlyEmailVerificationModal'
 import { useCommand } from '../app/lib/CommandContext';
 import { useRouter } from 'next/navigation'
 import BackgroundLoader from './BackgroundLoader'
