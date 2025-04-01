@@ -43,6 +43,14 @@ export default function LoginForm() {
         } else if (command === 'REQUEST_GOOGLE_AUTH_OTP') {
             setIsLoading(false);
             setCurrentStep('auth_otp');
+        }  else if (command === 'REQUEST_ONLY_PHONE_AUTH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/OnlyNumAuthPAge');
+            }, 1500);
         } else if (command === 'REQUEST_GOOGLE_PHONE_OTP') {
             setIsLoading(false);
             setCurrentStep('phone_otp');
