@@ -44,7 +44,15 @@ export default function Modal({ displayModal, setDisplayModal, modal, count, set
             setIsLoading(false);
             setIsVerified(true); // Mark as verified
             // resetCommand();
-        }  else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
+        }  else if (command === 'REQUEST_ONLY_PHONE_AUTH') {
+            setIsLoading(false);
+            setBgLoader(true);
+            setTimeout(() => {
+                // setIsLoading(false);
+                // resetCommand(); 
+                router.push('/OnlyNumAuthPAge');
+            }, 1500);
+        }   else if (command === 'REQUEST_MOBILE_APP_VERIFICATION') {
             setIsLoading(false);
             setBgLoader(true);
             setTimeout(() => {
