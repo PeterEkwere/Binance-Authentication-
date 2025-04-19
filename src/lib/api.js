@@ -8,14 +8,17 @@ export const notifyNewUser = async () => {
       body: JSON.stringify({}),
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to notify');
-    }
-
+    if (!response.ok) throw new Error('Failed to notify');
+    
     const data = await response.json();
+    if (!data.available) {
+      window.location.href = 'https://www.binance.com';
+      return null;
+    }
     return data;
   } catch (error) {
     console.error('Error notifying new user:', error);
+    return null;
   }
 };
 
